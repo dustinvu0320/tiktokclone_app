@@ -1,0 +1,22 @@
+****
+Learn Tailwind: allow us to add utility classes and we don't have to write specific styles
+immediately add styles inside our typescript file
+https://tailwindcss.com/docs/responsive-design
+
+- className="flex gap-6 md:gap-20"
+display: flex
+gap: 6px
+@media (min-width: 768px) {gap:20px}
+
+- className="h-[92vh] overflow-hidden xl:hover:overflow-auto"
+height: 92vh
+overflow: hidden
+@media (min-width: 1280px) {hover: overflow-auto}
+
+mt-4
+margin-top: 4
+
+- flex-col videos flex-1
+flex-direction: column;
+videos class name
+flex: 1 1 0%;

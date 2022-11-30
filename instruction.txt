@@ -1,0 +1,27 @@
+- Initialize nextjs app
+npx create-next-app@latest ./ --ts
+npm install -g @sanity/cli
+sanity init --coupon javascriptmastery2022
+
+1/ Work data schemas
+- create user / comment / postedBy / post
+meaning user can post multiple comments and keep track which comment has user posted
+- import all schemas to schema.js
+- Sanity will read schemas and populate them into Sanity Studio
+
+2/ cd sanity-backend and run sanity start
+- create dummy data on sanity studio
+
+3/ add dependencies for package.json
+- run npm install --legacy-peer-deps to make sure install the same versions of dependencies
+
+4/ Work on pages frontendß
+- run npm run dev to compile the app
+
+5/ Install tailwind css
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+- fix tailwind.config.js file to import tailwind
+
+6/ _app.tsx
+- Where we create structure for nextjs (Main page)
