@@ -25,3 +25,13 @@ npx tailwindcss init -p
 
 6/ _app.tsx
 - Where we create structure for nextjs (Main page)
+
+7/ Start on Components
+- Make sure to import components to _app.tsx
+
+8/ Navbar component
+- import neccessary dependencies
+- add utils folders contain files
+
+9/ Sidebar component
+- Create menu sidebar
