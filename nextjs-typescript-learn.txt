@@ -1,0 +1,27 @@
+Sanity: a Content Management System (Like an admin dashboard to manage users and data contents)
+- allow us to focus on developing the app without worry about the content file, storage, and database
+
+Google Login:
+https://www.npmjs.com/package/react-google-login
+
+useRouter query
+https://nextjs.org/docs/api-reference/next/router
+
+*** extract topic from router in Link
+const router = useRouter();
+const { topic } = router.query;
+<Link href={`/?topic=${item.name}`} key={item.name}>
+  <div lassName={topic === item.name ? activeTopicStyle : topicStyle}>
+
+*** Learn to make className dynamic template string
+- Pass mt parameter to className and make it dynamic
+const List = ({ items, mt }: { items: string[]; mt: boolean }) => (
+  <div className={`flex flex-wrap gap-2 ${mt && "mt-5"}`}>
+
+*** Learn to request and fetch data using getServerSideProps
+ https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props
+
+ *** Learn about queries when fetch or get data from api
+ https://www.sanity.io/docs/how-queries-work
+
+ *** make function async to go with await

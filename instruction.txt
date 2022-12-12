@@ -35,3 +35,25 @@ npx tailwindcss init -p
 
 9/ Sidebar component
 - Create menu sidebar
+- Add Google Login React for user: use render and button to create login
+https://www.npmjs.com/package/react-google-login
+- Add 3 commponents inside menu sidebar <Discover/> <SuggestedAccounts/> <Footer/>
+
+10/ Discover component
+- Import and Handle arrays of topics and their icons
+- Learn about useRouter https://nextjs.org/docs/api-reference/next/router
+
+11/ Footer component
+- Import and Handle arrays of footerLists
+
+** 12/ Main Job (Video View) - render and fetch different videos
+- index.tsx:
+ + import axos: make real api call
+ + fetch data using getServerSideProps
+ https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props
+ + create index.ts server in api folder
+  @ Fetch data from Sanity client on Sanity url under Account to get all info into client.ts
+  @ On Sanity server:
+    # Generate API tokens to read and write data into api database
+    # Create env to store securely token in code files
+    # Add CORS origin http://localhost:3000/ to connect url to api server
