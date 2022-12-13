@@ -57,3 +57,15 @@ https://www.npmjs.com/package/react-google-login
     # Generate API tokens to read and write data into api database
     # Create env to store securely token in code files
     # Add CORS origin http://localhost:3000/ to connect url to api server
+ + Create types.d.ts
+  @ Render to get data properties from Frist Video stored in Sanity Server
+  @ Add those properties to interface Video and User
+ + Render video and display UI
+ + Install Path Intellisense
+ + Create VideoCard and NoResults components
+
+13/ Implement VideoCard 
+- Get user data and display
+- Work on user info (logo, name)
+- Show video of user
+ + Check if mouse is on video then display video buttons

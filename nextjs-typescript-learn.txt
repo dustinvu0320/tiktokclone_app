@@ -25,3 +25,28 @@ const List = ({ items, mt }: { items: string[]; mt: boolean }) => (
  https://www.sanity.io/docs/how-queries-work
 
  *** make function async to go with await
+
+ *** Learn about NextPage typescript when using props
+ - 2 ways to pass parameters
+ interface IProps {
+  text: string;
+ }
+ const NoResults = ({ text }: IProps) => {
+  | | | | | | | | | | | | |
+ import { NextPage } from "next";
+ interface IProps {
+   post: Video;
+ }
+ const VideoCard: NextPage<IProps> = ({ post }) => {
+
+*** Learn Link & Image from nextjs
+- Make sure to add domains for image links
+images: {
+    domains: ['cdn-icons-png.flaticon.com']
+}
+
+*** Learn video html
+https://www.w3schools.com/html/html5_video.asp
+
+*** Learn useRef from React (manage video play, pause, mute)
+https://reactjs.org/docs/hooks-reference.html#useref
