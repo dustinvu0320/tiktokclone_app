@@ -64,8 +64,38 @@ https://www.npmjs.com/package/react-google-login
  + Install Path Intellisense
  + Create VideoCard and NoResults components
 
-13/ Implement VideoCard 
+13/ Implement VideoCard component
 - Get user data and display
 - Work on user info (logo, name)
 - Show video of user
  + Check if mouse is on video then display video buttons
+- Apply useRef to make video play
+
+14/ Implement Navbar component (New version of Google Identity Services)
+- Work on Google Login button and functio nality
+- Install react-ouath.google for login and jwt-decode to get fully access for Google user
+ npm install @react-ouath/google jwt-decode
+- import GoogleOAuthProvider and wrap whole app with it at _app.tsx
+- Go to https://console.cloud.google.com/ and create new project
+ + Configure OAuth consent screen at APIs & Services and make external to make it available publicly
+ + Create OAuth client ID credentials for web app
+ + Add http://localhost & http://localhost:3000 for authorized origins and URIs
+ + Get clientID, store to env, and redirect to clientId for GoogleOAuthProvider
+ + Add GoogleLogin in Navbar
+15/ index.ts
+- Fetch data from GoogleLogin and use jwt-decode to access fully information of user
+- Create user object contains user information we get from decoded
+
+16/ Create auth.ts in pages/api
+- Handle POST method with data sending from index.ts
+
+17/ Create authStore.ts in store folder since there is only single source of state
+- Use Zustand to handle state management for user (instead of useContext or Redux)
+- Implement Zustand and persist to save state when refresh
+
+18/Handle user state
+- in Navbar.tsx: 
+ + import useAuthStore
+ + pass function addUser to createOrGetUser function from GoogleLogin
+ // index.ts: we're able to set userProfile to be the current user
+ + userProfile being assigned to current user at index.ts, so Navbar can have user

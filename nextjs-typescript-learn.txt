@@ -40,7 +40,7 @@ const List = ({ items, mt }: { items: string[]; mt: boolean }) => (
  const VideoCard: NextPage<IProps> = ({ post }) => {
 
 *** Learn Link & Image from nextjs
-- Make sure to add domains for image links
+- Make sure to add domains for image links in next.config.js
 images: {
     domains: ['cdn-icons-png.flaticon.com']
 }
@@ -50,3 +50,25 @@ https://www.w3schools.com/html/html5_video.asp
 
 *** Learn useRef from React (manage video play, pause, mute)
 https://reactjs.org/docs/hooks-reference.html#useref
+- Handle useRef
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const onVideoPress = () => {
+    if (playing) {
+      videoRef?.current?.pause();
+      setPlaying(false);
+    } else {
+      videoRef?.current?.play();
+      setPlaying(true);
+    }
+  }
+
+*** Learn new version for Google Login Services
+https://developers.google.com/identity/gsi/web/guides/overview
+https://www.npmjs.com/package/@react-oauth/google
+
+*** Wrap clientId with template string
+<GoogleOAuthProvider clientId={`${process.env.NEXT_PUBLIC_GOOGLE_API_TOKEN}`}>
+
+*** To save and store user, we could use useContext or Redux from React
+*** Or in this app, we use Zustand https://zustand-demo.pmnd.rs/
+
