@@ -82,6 +82,7 @@ https://www.npmjs.com/package/react-google-login
  + Add http://localhost & http://localhost:3000 for authorized origins and URIs
  + Get clientID, store to env, and redirect to clientId for GoogleOAuthProvider
  + Add GoogleLogin in Navbar
+
 15/ index.ts
 - Fetch data from GoogleLogin and use jwt-decode to access fully information of user
 - Create user object contains user information we get from decoded
@@ -99,3 +100,22 @@ https://www.npmjs.com/package/react-google-login
  + pass function addUser to createOrGetUser function from GoogleLogin
  // index.ts: we're able to set userProfile to be the current user
  + userProfile being assigned to current user at index.ts, so Navbar can have user
+
+ 19/ Back to Navbar
+ - If user already Login
+  + Add upload button
+  + Add image of user
+  + Add Logout button
+   * Call out googleLogout
+   * in authStore.ts: add function removeUser to delete current user state
+   * Call out function removeUser
+
+20/ Upload page
+- Create upload.tsx in pages folder
+- Create page title
+- Create an upload container
+ + Check if it's not loading and haven't had videoAsset
+  * Show label to select file and create function uploadFile for handle input
+ + If we selected file, so we have videoAsset
+  * setVideoAsset = selectedFile then show the video file
+- Create a Form next to upload container

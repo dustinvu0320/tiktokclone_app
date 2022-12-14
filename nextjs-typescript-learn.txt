@@ -72,3 +72,4 @@ https://www.npmjs.com/package/@react-oauth/google
 *** To save and store user, we could use useContext or Redux from React
 *** Or in this app, we use Zustand https://zustand-demo.pmnd.rs/
 
+*** Learn about <label> then <input> type="file"

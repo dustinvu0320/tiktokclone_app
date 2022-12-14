@@ -20,7 +20,10 @@ export default function App({ Component, pageProps }: AppProps) {
     <GoogleOAuthProvider
       clientId={`${process.env.NEXT_PUBLIC_GOOGLE_API_TOKEN}`}
     >
+      {/* Top page */}
       <Navbar />
+
+      {/* Below page */}
       <div className="flex gap-6 md:gap-20">
         {/* Side bar */}
         <div className="h-[92vh] overflow-hidden xl:hover:overflow-auto">
