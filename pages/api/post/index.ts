@@ -12,5 +12,12 @@ export default async function handler(
     const data = await client.fetch(query);
 
     res.status(200).json(data);
+
+    // Fetch video document to Sanity api
+  } else if (req.method === 'POST') {
+    const document = req.body;
+
+    client.create(document)
+    .then(() => res.status(201).json('Video Created'))
   }
 }

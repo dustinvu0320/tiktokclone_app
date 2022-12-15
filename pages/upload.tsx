@@ -8,12 +8,22 @@ import { SanityAssetDocument } from "@sanity/client";
 import useAuthStore from "../store/authStore";
 import { client } from "../utils/client";
 
+import { topics } from "../utils/constants";
+
 const Upload = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [videoAsset, setVideoAsset] = useState<
     SanityAssetDocument | undefined
   >();
   const [wrongFileType, setWrongFileType] = useState(false);
+  const [caption, setCaption] = useState("");
+  const [category, setCategory] = useState(topics[0].name);
+  const [savingPost, setSavingPost] = useState(false);
+
+  // Render user using Zustand
+  const { userProfile }: { userProfile: any } = useAuthStore();
+
+  const router = useRouter();
 
   const uploadVideo = async (e: any) => {
     const selectedFile = e.target.files[0];
@@ -36,9 +46,39 @@ const Upload = () => {
     }
   };
 
+  const handlePost = async () => {
+    // Check if we have all 3 caption, video, and category being filled
+    if (caption && videoAsset?._id && category) {
+      setSavingPost(true);
+
+      const document = {
+        _type: "post",
+        caption,
+        video: {
+          _type: "file",
+          asset: {
+            _type: "reference",
+            _ref: videoAsset?._id,
+          },
+        },
+        userId: userProfile?._id,
+        postedBy: {
+          _type: "postedBy",
+          _ref: userProfile?._id,
+        },
+        topic: category,
+      };
+
+      // Send over to backend route api
+      await axios.post("http://localhost:3000/api/post", document);
+
+      router.push("/");
+    }
+  };
+
   return (
     <div className="flex w-full h-full absolute left-0 top-[60px] lg:top-[60px] mb-10 pt-10 lg:pt-20 bg-[#F8F8F8] justify-center">
-      <div className="bg-white rounded-lg xl:h-[80vh] flex gap-6 flex-wrap justify-center items-center p-14 pt-6">
+      <div className="bg-white rounded-lg xl:h-[80vh] w-[60%] flex gap-6 flex-wrap justify-between items-center p-14 pt-6">
         <div>
           {/* Page Title */}
           <div>
@@ -104,17 +144,51 @@ const Upload = () => {
           </div>
         </div>
 
-        {/* Form */}
+        {/* Form (video caption & category) */}
         <div className="flex flex-col gap-3 pb-10">
+          {/* Caption */}
           <label className="text-md font-medium">Caption</label>
           <input
             type="text"
-            value=""
-            onChange={() => {}}
+            value={caption}
+            onChange={(e) => setCaption(e.target.value)}
             className="rounded outline-none text-md border-2 border-gray-200 p-2"
           />
+
+          {/* Category */}
           <label className="text-md font-medium">Choose a Category</label>
-          <select onChange={() => {}}></select>
+          <select
+            onChange={(e) => setCategory(e.target.value)}
+            className="outline-none border-2 border-gray-200 text-md capitalize lg:p-4 p-2 rounded cursor-pointer"
+          >
+            {topics.map((topic) => (
+              <option
+                key={topic.name}
+                className="outline-none capitalize bg-white text-gray-700 text-md p-2 hover:bg-slate-300"
+                value={topic.name}
+              >
+                {topic.name}
+              </option>
+            ))}
+          </select>
+
+          {/* Button */}
+          <div className="flex gap-6 mt-10">
+            <button
+              onClick={() => {}}
+              type="button"
+              className="border-gray-300 border-2 text-md font-medium p-2 rounded w-28 lg:w-44 outline-none"
+            >
+              Discard
+            </button>
+            <button
+              onClick={handlePost}
+              type="button"
+              className="bg-[#F51995] text-white text-md font-medium p-2 rounded w-28 lg:w-44 outline-none"
+            >
+              Post
+            </button>
+          </div>
         </div>
       </div>
     </div>

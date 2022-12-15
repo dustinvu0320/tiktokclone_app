@@ -73,3 +73,10 @@ https://www.npmjs.com/package/@react-oauth/google
 *** Or in this app, we use Zustand https://zustand-demo.pmnd.rs/
 
 *** Learn about <label> then <input> type="file"
+
+*** Learn to handle event
+<input
+  type="text"
+  value={caption}
+  onChange={(e) => setCaption(e.target.value)}
+/>

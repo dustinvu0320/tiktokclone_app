@@ -118,4 +118,12 @@ https://www.npmjs.com/package/react-google-login
   * Show label to select file and create function uploadFile for handle input
  + If we selected file, so we have videoAsset
   * setVideoAsset = selectedFile then show the video file
-- Create a Form next to upload container
+- Create a Form for caption & category & buttons (next to upload container)
+- Build state for each thing in video
+- Then useState to set the state by onChange 
+- Create function to handlePost the video with all needed information
+ + Create a document object of video
+
+ 21/ Remove Login function in Sidebar component
+
+ 22/ Create detail folder and then [id].tsx inside
