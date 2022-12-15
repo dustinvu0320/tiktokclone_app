@@ -80,3 +80,6 @@ https://www.npmjs.com/package/@react-oauth/google
   value={caption}
   onChange={(e) => setCaption(e.target.value)}
 />
+
+*** Learn about using [id].tsx
+Link will be generated dynamic based on changing id: http://localhost:3000/detail/[id]
