@@ -52,6 +52,7 @@ https://www.w3schools.com/html/html5_video.asp
 https://reactjs.org/docs/hooks-reference.html#useref
 - Handle useRef
   const videoRef = useRef<HTMLVideoElement>(null);
+*Play
   const onVideoPress = () => {
     if (playing) {
       videoRef?.current?.pause();
@@ -61,6 +62,12 @@ https://reactjs.org/docs/hooks-reference.html#useref
       setPlaying(true);
     }
   }
+*Mute
+  useEffect(() => {
+    if (videoRef?.current) {
+      videoRef.current.muted = isVideoMuted;
+    }
+  }, [isVideoMuted])
 
 *** Learn new version for Google Login Services
 https://developers.google.com/identity/gsi/web/guides/overview
@@ -83,3 +90,6 @@ https://www.npmjs.com/package/@react-oauth/google
 
 *** Learn about using [id].tsx
 Link will be generated dynamic based on changing id: http://localhost:3000/detail/[id]
+
+*** Learn useRouter
+https://nextjs.org/docs/api-reference/next/router

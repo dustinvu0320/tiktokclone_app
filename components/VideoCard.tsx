@@ -29,6 +29,13 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
     }
   };
 
+  // This useEffect hook will be called when value of isVideoMuted changes
+  useEffect(() => {
+    if (videoRef?.current) {
+      videoRef.current.muted = isVideoMuted;
+    }
+  }, [isVideoMuted]);
+
   return (
     <div className="flex flex-col border-b-2 border-gray-200 pb-6">
       {/* User Info */}

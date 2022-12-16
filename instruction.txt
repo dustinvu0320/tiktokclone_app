@@ -126,4 +126,28 @@ https://www.npmjs.com/package/react-google-login
 
  21/ Remove Login function in Sidebar component
 
- 22/ Create detail folder and then [id].tsx inside
+ 22/ Create detail folder and then [id].tsx page inside
+ - Create function getServerSideProps to axios.get id of video from api
+ - Create [id].ts inside api/post to render api
+  + Here we query the post id and search for it in api database then fetch it back
+ - Get video data from function getServerSideProps and pass to the page
+- Left Page:
+ + Cancel Button: implement useRouter to route back to home page
+ + Video Container: Show video using video play function
+ + Mute Button: work on mute function using useEffect
+- Right Page:
+ + User Info (copy from VideoCard)
+ + Caption
+ + Like Button component
+ + Comments Section component
+
+ 23/ LikeButton.tsx
+- Check if user already like it or not then handle function
+- Create function handleLike in Detail page to axios.put like to api
+- Pass this function to LikeButton component to get like boolean
+- Create api like.ts to handle next js backend route for like and unlike
+- Create useEffect to handle userAlreadyLiked or not
+
+24/ Comments.tsx
+- Work on NoResults.tsx
+ + Show icon and text for no comments
