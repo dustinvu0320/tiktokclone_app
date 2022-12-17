@@ -151,3 +151,11 @@ https://www.npmjs.com/package/react-google-login
 24/ Comments.tsx
 - Work on NoResults.tsx
  + Show icon and text for no comments
+- Check if already login, then be able to comment in post
+ + Create form of input for user to comment
+- Create function addComment in Detail page to handle user comment
+- From Detail page, pass many props back to Comments.tsx
+- Specify object for IProps and IComment
+- Pass all functions && comment props from Detail page to correct places in Comments component
+- Work on api/post/[id].ts to implement PUT for comment
+ + Create PUT to commit comment to api

@@ -93,3 +93,13 @@ Link will be generated dynamic based on changing id: http://localhost:3000/detai
 
 *** Learn useRouter
 https://nextjs.org/docs/api-reference/next/router
+
+*** Learn using ? in typescript
+length? : it may have it or it may not
+
+*** Learn about Dispatch react and FormEvent from ts
+import React, {Dispatch, SetStateAction} from "react"; 
+interface IProps {
+  setComment: Dispatch<SetStateAction<string>>;
+  addComment: (e: React.FormEvent) => void;
+}
