@@ -159,3 +159,14 @@ https://www.npmjs.com/package/react-google-login
 - Pass all functions && comment props from Detail page to correct places in Comments component
 - Work on api/post/[id].ts to implement PUT for comment
  + Create PUT to commit comment to api
+
+25/ Fetch All users
+- Add new function fetchAllUsers in authStore
+- Create api users.ts to handle fetch GET users data
+- Add another allUsers element for authStore (array to store all users)
+- Implement SuggestedAccounts component to fetch all users
+- Render allUser inside Comments page and fetch all comments by searching comment by user
+
+26/ Profile page (create [id].tsx inside profile folder)
+- Create function getServerSideProps to render specific user id for this page
+- Props these data to the page
