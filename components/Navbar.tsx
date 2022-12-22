@@ -16,15 +16,15 @@ import { IUser } from "../types";
 const Navbar = () => {
   const router = useRouter();
 
+  const [searchValue, setSearchValue] = useState("");
+
+  const [user, setUser] = useState<IUser | null>();
   const { userProfile, addUser, removeUser } = useAuthStore();
 
   // Handle Typescript error for specific type of element
-  const [user, setUser] = useState<IUser | null>();
   useEffect(() => {
     setUser(userProfile);
   }, [userProfile]);
-
-  const [searchValue, setSearchValue] = useState("");
 
   const handleSearch = (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -84,15 +84,13 @@ const Navbar = () => {
             {/* Check user image */}
             {user.image && (
               <Link href={`/profile/${user._id}`}>
-                <>
-                  <Image
-                    width={40}
-                    height={40}
-                    className="rounded-full cursor-pointer"
-                    src={user.image}
-                    alt="profile photo"
-                  />
-                </>
+                <Image
+                  width={40}
+                  height={40}
+                  className="rounded-full cursor-pointer"
+                  src={user.image}
+                  alt="profile photo"
+                />
               </Link>
             )}
 

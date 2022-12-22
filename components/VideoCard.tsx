@@ -44,16 +44,14 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
           {/* Logo of User */}
           <div className="md:w-16 md:h-16 w-10 h-10">
             <Link href={`/profile/${post.postedBy._id}`}>
-              <>
-                <Image
-                  width={62}
-                  height={62}
-                  className="rounded-full"
-                  src={post.postedBy.image}
-                  alt="profile photo"
-                  layout="responsive"
-                />
-              </>
+              <Image
+                width={62}
+                height={62}
+                className="rounded-full"
+                src={post.postedBy.image}
+                alt="profile photo"
+                layout="responsive"
+              />
             </Link>
           </div>
 

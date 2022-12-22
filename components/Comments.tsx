@@ -57,7 +57,7 @@ const Comments = ({
                           </div>
 
                           {/* User Name and Verified icon */}
-                          <div className="hidden xl:block">
+                          <div className="">
                             <p className="flex gap-1 items-center text-md font-bold text-primary lowercase">
                               {user.userName.replaceAll(" ", "")}
                               <GoVerified className="text-blue-400" />
@@ -82,6 +82,7 @@ const Comments = ({
         )}
       </div>
 
+      {/* Comment Input and Submit */}
       {userProfile && (
         <div className="absolute bottom-0 left-0 pb-6 px-2 md:px-10">
           <form onSubmit={addComment} className="flex gap-4">
