@@ -11,10 +11,18 @@ import Logo from "../utils/tiktik-logo.png";
 import { createOrGetUser } from "../utils";
 
 import useAuthStore from "../store/authStore";
+import { IUser } from "../types";
 
 const Navbar = () => {
   const router = useRouter();
+
   const { userProfile, addUser, removeUser } = useAuthStore();
+
+  // Handle Typescript error for specific type of element
+  const [user, setUser] = useState<IUser | null>();
+  useEffect(() => {
+    setUser(userProfile);
+  }, [userProfile]);
 
   const [searchValue, setSearchValue] = useState("");
 
@@ -63,7 +71,7 @@ const Navbar = () => {
 
       {/* User Account (Login or Show user info) */}
       <div>
-        {userProfile ? (
+        {user ? (
           <div className="flex gap-5 md:gap-10">
             {/* Link to upload */}
             <Link href="/upload">
@@ -74,14 +82,14 @@ const Navbar = () => {
             </Link>
 
             {/* Check user image */}
-            {userProfile.image && (
-              <Link href="/">
+            {user.image && (
+              <Link href={`/profile/${user._id}`}>
                 <>
                   <Image
                     width={40}
                     height={40}
                     className="rounded-full cursor-pointer"
-                    src={userProfile.image}
+                    src={user.image}
                     alt="profile photo"
                   />
                 </>

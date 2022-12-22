@@ -189,3 +189,14 @@ https://www.npmjs.com/package/react-google-login
 29/ Implement topic to render specific videos based on topic
 - From index.tsx, sending topic to api
 - Create discover folder contains [topic].ts to handle fetch topic videos
+
+30/ Deployment!!!
+- Add this in next.config.js
+typescript: {
+  ignoreBuildErrors: true,
+}
+- Add all APIs inside .env into Vercel
+- App link: https://tiktokclone-app.vercel.app/
+- Sanity: Make sure to add app link to CORS origins setting on Vercel
+- GoogleAuth: console.cloud.google.com
+ + Add app link to Authoried origins and urls in credentials API on GoogleAuth
