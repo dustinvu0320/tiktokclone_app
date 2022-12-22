@@ -169,4 +169,23 @@ https://www.npmjs.com/package/react-google-login
 
 26/ Profile page (create [id].tsx inside profile folder)
 - Create function getServerSideProps to render specific user id for this page
-- Props these data to the page
+- Props these data to the page (user, userVideos, and likedVideos)
+- Container:
+ + Top: show user info by rendering user icon and name
+ + Switch between uservideos and likedvideos
+  * Create useEffect to setVideosList = userVideos or likedVideos based on every time recall of showUserVideos
+  * Show VideoCard based on the switch or show NoResults if no videos
+
+27/ Search Bar in Navbar component
+- Create a form to input search objects
+- Create function handleSearch to route to searchTerm Page and handle searching
+
+28/ Implement new [searchTerm].tsx page
+- Create getServerSideProps to render searchTerm into api
+- Create [searchTerm].ts in api to handle search algorithm and return videos
+- Render videos that GET from api to frontend
+- Filter out allUsers to get user accounts match with search
+
+29/ Implement topic to render specific videos based on topic
+- From index.tsx, sending topic to api
+- Create discover folder contains [topic].ts to handle fetch topic videos
